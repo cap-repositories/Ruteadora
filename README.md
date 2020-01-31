@@ -63,7 +63,7 @@ Ahora para generar el objeto geometría del corte en los limites de la placa, de
 
 ![alt text](https://github.com/cap-repositories/Ruteadora/blob/master/miscelanea/imagenes/flatcam_geo2_USBA_USBB.png "flatcam_geo2")
 
-El siguiente elemento a generar es el código G para los agujeros pasantes. De click izquierdo en el archivo *Gerber_Drill_PTH.DRL*, vaya a la pestaña *Selected*, coloque en los parametros *Cut Z*(desplazamiento en Z para realizar el corte):-2.2mm, en *Travel Z*(desplazamiento en Z para posicionar la herramienta en otro punto sin realizar corte):0.5mm, *End move Z*(posición Z de la herramienta cuando termina): 50mm, *Feedrate Z*(velocidad del movimiento en Z cuando realiza la perforación):3mm/min y *Spindle speed*(velocidad del huso):12000RPM.
+El siguiente elemento a generar es el código G para los agujeros pasantes. De click izquierdo en el archivo *Gerber_Drill_PTH.DRL*, vaya a la pestaña *Selected*, coloque en los parametros *Cut Z*(desplazamiento en Z para realizar el corte):-2.2mm, en *Travel Z*(desplazamiento en Z para posicionar la herramienta en otro punto sin realizar corte):1mm, *End move Z*(posición Z de la herramienta cuando termina): 50mm, *Feedrate Z*(velocidad del movimiento en Z cuando realiza la perforación):3mm/min y *Spindle speed*(velocidad del huso):12000RPM.
 
 
 
