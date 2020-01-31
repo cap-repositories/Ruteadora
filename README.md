@@ -38,11 +38,34 @@ Seleccione cada pad de la USB A, en un recuadro a la derecha aparecen las propie
 
 ![alt text](https://github.com/cap-repositories/Ruteadora/blob/master/miscelanea/imagenes/PCB3_USBA_USBB.PNG "pcb3")
 
-Por ultimo genere el gerber: ![alt text](https://github.com/cap-repositories/Ruteadora/blob/master/miscelanea/imagenes/gengerber_USBA_USBB.png "gengerber"), saldra otro cuadro, en este presione nuevamente generar gerber y se descargara un archivo .zip, que contiene los archivos gerber de la pcb, EasyEDA por defecto guarda la información del borde de la placa en *Gerber_BoardOutline.GKO*, la posición donde se deben hacer los orificios en *Gerber_Drill_PTH.DRL* y las pistas las guarda por defecto en *Gerber_TopLayer.GTL*.
+Por ultimo genere el gerber: ![alt text](https://github.com/cap-repositories/Ruteadora/blob/master/miscelanea/imagenes/gengerber_USBA_USBB.png "gengerber"), saldra otro cuadro, en este presione nuevamente generar gerber y se descargara un archivo .zip, que contiene los archivos gerber de la pcb, EasyEDA por defecto guarda la información del borde de la placa en *Gerber_BoardOutline.GKO*, la posición donde se deben hacer los agujeros en *Gerber_Drill_PTH.DRL* y las pistas las guarda por defecto en *Gerber_TopLayer.GTL*.
 
 También se pueden crear las pistas utilizando la herramienta *Auto Router* en linea o desde el computador siguiendo este [enlace](https://docs.easyeda.com/en/PCB/Route/index.html#Local-Auto-Router), para usar esta herramienta se debe considerar el ancho de la pista (**Track width**), el espaciamiento entre las pistas (**Clearance**), el ancho de los pads donde se soldan los pines (**Via diameter**) y el ancho de los orificios que se realizan con el taladro (**Via drill diameter**), este ultimo parametro debe ser menor al **Via diameter** de forma que quede suficiente material para aplicar soldadura.
 
 ### <a name="sec_gcode"></a> Generar el codigo G a partir del archivo en formato gerber
+Con el archivo en formato gerber, se puede proceder a la generación del código G que dicta como se debe mover la ruteadora de forma que pueda fabricar la pcb. Existen varios programas para realizar esta tarea, ya sea en linea o a través de aplicaciones de escritorio, en esta guía se utiliza [*FlatCAM*](http://flatcam.org/) por sus características y herramientas. Para comenzar a editar los archivos gerber generados en la anterior [sección](#sec_esq), abra FlatCAM y vaya a *file->Open->Open Gerber ...*, abra los archivos *Gerber_BoardOutline.GKO* y *Gerber_TopLayer.GTL*, ahora vaya a *file->Open->Open Excellon ...* y abra el archivo *Gerber_Drill_PTH.DRL*, en FlatCam debera ver lo siguiente:
+
+![alt text](https://github.com/cap-repositories/Ruteadora/blob/master/miscelanea/imagenes/flatcam_gerber_USBA_USBB.png "flatcam_gerber")
+
+Lo primero que se necesita hacer es eliminar los elementos innecesarios, para esto busque la pestaña project y de click derecho en *Gerber_Drill_PTH.DRL*, seleccione *edit*, los circulos rojos de la anterior imagen se convertiran en unas cruces, seleccione las cuatro exteriores al circuito y presione suprimir, presione *ctrl+s* para guardar los cambios, aparecera un nuevo archivo con sufijo *_edit*, elimine el que no tiene este sufijo y repita este procedimiento para el archivo *Gerber_TopLayer.GTL*, debera obtener lo siguiente:
+
+![alt text](https://github.com/cap-repositories/Ruteadora/blob/master/miscelanea/imagenes/flatcam_gerber1_USBA_USBB.png "flatcam_gerber1")
+
+Como uno de los conectores que se va a usar es de montaje superficial y el otro es de agujero pasante, entonces en la disposición en que se encuentran el gerber con las pistas y el gerber con las posiciones de los agujeros hacen que estén reflejados en X, para poder corregir esto vaya a *Tool->Command Line*, copie y pegue la linea `mirror Gerber_Drill_PTH.DRL_edit -box Gerber_BoardOutline.GKO -axis x` y la linea `mirror Gerber_TopLayer.GTL_edit  -box Gerber_BoardOutline.GKO -axis x`, recuerde presionar enter después de cada linea, el resultado debe ser el siguiente:
+
+![alt text](https://github.com/cap-repositories/Ruteadora/blob/master/miscelanea/imagenes/flatcam_gerber2_USBA_USBB.png "flatcam_gerber2")
+
+El siguiente paso es generar un objeto geometría con el cual FlatCAM genera el codigo G. De click izquierdo en el archivo *Gerber_TopLayer.GTL_edit* y vaya a la pestaña *Selected*, busque el parámetro *Tool dia*(diametro de la herramienta) y coloque 0.2mm, presione *FULL Geo*, con esto FlatCAM genera un objeto geometría en el cual se puede visualizar cual va a ser el camino que va a tomar la ruteadora, el resultado debe ser el siguiente:
+
+![alt text](https://github.com/cap-repositories/Ruteadora/blob/master/miscelanea/imagenes/flatcam_geo1_USBA_USBB.png "flatcam_geo1")
+
+Ahora para generar el objeto geometría del corte en los limites de la placa, de click izquierdo en el archivo *Gerber_BoardOutline.GKO*, vaya a la pestaña *Selected* y presione *Cutout Tool*, se abrira una nueva pestaña y en esta coloque en el parámetro *Tool dia*:4mm, *Gap size*(tamaño del espaciamiento entre cortes): 0,4mm y en *Gaps*(tipo de espaciamiento):4. El resultado debe ser el siguiente:
+
+![alt text](https://github.com/cap-repositories/Ruteadora/blob/master/miscelanea/imagenes/flatcam_geo2_USBA_USBB.png "flatcam_geo2")
+
+El siguiente elemento a generar es el código G para los agujeros pasantes. De click izquierdo en el archivo *Gerber_Drill_PTH.DRL*, vaya a la pestaña *Selected*, coloque en los parametros *Cut Z*(desplazamiento en Z para realizar el corte):-2.2mm, en *Travel Z*(desplazamiento en Z para posicionar la herramienta en otro punto sin realizar corte):0.5mm, *End move Z*(posición Z de la herramienta cuando termina): 50mm, *Feedrate Z*(velocidad del movimiento en Z cuando realiza la perforación):3mm/min y *Spindle speed*(velocidad del huso):12000RPM.
+
+
 
 ### <a name="sec_prepare"></a> Preparar la ruteadora
 
