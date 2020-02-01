@@ -69,7 +69,7 @@ Presione *FULL Geo*. El resultado debe ser el siguiente:
 
 ![alt text](https://github.com/cap-repositories/Ruteadora/blob/master/miscelanea/imagenes/flatcam_geo2_USBA_USBB.png "flatcam_geo2")
 
-El siguiente elemento a generar es el código G para los agujeros pasantes. De click izquierdo en el archivo *Gerber_Drill_PTH.DRL*, vaya a la pestaña *Selected*, coloque en los parametros:
+El siguiente elemento a generar es el código G para los agujeros pasantes. De click izquierdo en el archivo *Gerber_Drill_PTH.DRL_edit*, vaya a la pestaña *Selected*, coloque en los parametros:
 
 + *Cut Z*: -2.2 (mm), es el desplazamiento en Z para realizar el corte.
 + *Travel Z*: 1 (mm), es el desplazamiento en Z para posicionar la herramienta en otro punto sin realizar corte.
@@ -77,8 +77,33 @@ El siguiente elemento a generar es el código G para los agujeros pasantes. De c
 + *Feedrate Z*: 3 (mm/min), es la velocidad del movimiento en Z cuando realiza la perforación.
 + *Spindle speed*: 12000 (RPM), es la velocidad del huso.
 
+y presione *Create Drills GCode*. Ahora, genere el código G para las pistas. De click izquierdo en el archivo *Gerber_TopLayer.GTL_edit_iso*, vaya a la pestaña *Selected*, coloque en los parámetros:
 
++ *Cut Z*: -0.3 (mm), es la profundidad necesaria para que la herramienta pueda quitar la capa de cobre.
++ *Travel Z*: 1 (mm).
++ *End move Z*: 50 (mm).
++ *Feedrate X-Y*: 10 (mm/min), es la velocidad del movimiento sobre el plano X-Y.
++ *Feedrate Z*: 3 (mm/min).
++ *Spindle speed*: 12000 (RPM).
+
+y presione *Generate*. Ahora, genere el código G para las pistas. De click izquierdo en el archivo *Gerber_BoardOutline.GKO_cutout*, vaya a la pestaña *Selected*, coloque en los parámetros:
+
++ *Cut Z*: -2 (mm), es la profundidad necesaria para que la herramienta pueda quitar la capa de cobre.
++ *Travel Z*: 1 (mm).
++ *End move Z*: 50 (mm).
++ *Feedrate X-Y*: 3 (mm/min), es la velocidad del movimiento sobre el plano X-Y.
++ *Feedrate Z*: 3 (mm/min).
++ *Spindle speed*: 12000 (RPM).
+
+y presione *Generate*. Con lo realizado hasta ahora el resultado es el siguiente:
+
+![alt text](https://github.com/cap-repositories/Ruteadora/blob/master/miscelanea/imagenes/flatcam_gcode_USBA_USBB.png "flatcam_gcode")
+
+note que en la pestaña *project* del panel izquierdo, en la categoria *CNC Job* deben haber 3 archivos: *Gerber_TopLayer.GTL_edit_iso_cnc*, *Gerber_Drill_PTH.DRL_edit_cnc* y *Gerber_BoardOutline.GKO_cutout_cnc* , que son respectivamente el codigo G de las pistas, los agujeros pasantes y el corte de los bordes. De click izquierdo en cada uno, seleccione *save* y guarde el archivo como pistas, agujeros y corte respectivamente.
 
 ### <a name="sec_prepare"></a> Preparar la ruteadora
+Para realizar el grabado de las pistas, los agujeros pasantes y el corte de la pcb, como se ha configurado en los pasos anteriores, va a necesitar una "fresa v 30 grados para collect de 3mm", una "broca 1mm para collet de 3mm" y una "fresa de 4mm para collet de 6mm", estos elementos se muestran en la siguiente imagen:
+
+
 
 ### <a name="sec_execute"></a> Ejecutar el codigo G generado
