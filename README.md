@@ -59,11 +59,23 @@ El siguiente paso es generar un objeto geometría con el cual FlatCAM genera el 
 
 ![alt text](https://github.com/cap-repositories/Ruteadora/blob/master/miscelanea/imagenes/flatcam_geo1_USBA_USBB.png "flatcam_geo1")
 
-Ahora para generar el objeto geometría del corte en los limites de la placa, de click izquierdo en el archivo *Gerber_BoardOutline.GKO*, vaya a la pestaña *Selected* y presione *Cutout Tool*, se abrira una nueva pestaña y en esta coloque en el parámetro *Tool dia*:4mm, *Gap size*(tamaño del espaciamiento entre cortes): 0,4mm y en *Gaps*(tipo de espaciamiento):4. El resultado debe ser el siguiente:
+Ahora para generar el objeto geometría del corte en los limites de la placa, de click izquierdo en el archivo *Gerber_BoardOutline.GKO*, vaya a la pestaña *Selected* y presione *Cutout Tool*, se abrira una nueva pestaña y en esta coloque en los parámetros: 
+
++ *Tool dia*: 4 (mm).
++ *Gap size*: 0,4 (mm), es el tamaño del espaciamiento entre cortes.
++ *Gaps*: 4, es el tipo de espaciamiento. 
+
+Presione *FULL Geo*. El resultado debe ser el siguiente:
 
 ![alt text](https://github.com/cap-repositories/Ruteadora/blob/master/miscelanea/imagenes/flatcam_geo2_USBA_USBB.png "flatcam_geo2")
 
-El siguiente elemento a generar es el código G para los agujeros pasantes. De click izquierdo en el archivo *Gerber_Drill_PTH.DRL*, vaya a la pestaña *Selected*, coloque en los parametros *Cut Z*(desplazamiento en Z para realizar el corte):-2.2mm, en *Travel Z*(desplazamiento en Z para posicionar la herramienta en otro punto sin realizar corte):1mm, *End move Z*(posición Z de la herramienta cuando termina): 50mm, *Feedrate Z*(velocidad del movimiento en Z cuando realiza la perforación):3mm/min y *Spindle speed*(velocidad del huso):12000RPM.
+El siguiente elemento a generar es el código G para los agujeros pasantes. De click izquierdo en el archivo *Gerber_Drill_PTH.DRL*, vaya a la pestaña *Selected*, coloque en los parametros:
+
++ *Cut Z*: -2.2 (mm), es el desplazamiento en Z para realizar el corte.
++ *Travel Z*: 1 (mm), es el desplazamiento en Z para posicionar la herramienta en otro punto sin realizar corte.
++ *End move Z*: 50 (mm), es la posición en Z de la herramienta cuando termina.
++ *Feedrate Z*: 3 (mm/min), es la velocidad del movimiento en Z cuando realiza la perforación.
++ *Spindle speed*: 12000 (RPM), es la velocidad del huso.
 
 
 
