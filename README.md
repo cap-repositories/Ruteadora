@@ -72,7 +72,7 @@ Presione *FULL Geo*. El resultado debe ser el siguiente:
 El siguiente elemento a generar es el código G para los agujeros pasantes. De click izquierdo en el archivo *Gerber_Drill_PTH.DRL_edit*, vaya a la pestaña *Selected*, coloque en los parametros:
 
 + *Cut Z*: -2.2 (mm), es el desplazamiento en Z para realizar el corte.
-+ *Travel Z*: 1 (mm), es el desplazamiento en Z para posicionar la herramienta en otro punto sin realizar corte.
++ *Travel Z*: 5 (mm), es el desplazamiento en Z para posicionar la herramienta en otro punto sin realizar corte.
 + *End move Z*: 50 (mm), es la posición en Z de la herramienta cuando termina.
 + *Feedrate Z*: 3 (mm/min), es la velocidad del movimiento en Z cuando realiza la perforación.
 + *Spindle speed*: 12000 (RPM), es la velocidad del huso.
@@ -80,7 +80,7 @@ El siguiente elemento a generar es el código G para los agujeros pasantes. De c
 y presione *Create Drills GCode*. Ahora, genere el código G para las pistas. De click izquierdo en el archivo *Gerber_TopLayer.GTL_edit_iso*, vaya a la pestaña *Selected*, coloque en los parámetros:
 
 + *Cut Z*: -0.3 (mm), es la profundidad necesaria para que la herramienta pueda quitar la capa de cobre.
-+ *Travel Z*: 1 (mm).
++ *Travel Z*: 5 (mm).
 + *End move Z*: 50 (mm).
 + *Feedrate X-Y*: 10 (mm/min), es la velocidad del movimiento sobre el plano X-Y.
 + *Feedrate Z*: 3 (mm/min).
@@ -88,10 +88,10 @@ y presione *Create Drills GCode*. Ahora, genere el código G para las pistas. De
 
 y presione *Generate*. Ahora, genere el código G para las pistas. De click izquierdo en el archivo *Gerber_BoardOutline.GKO_cutout*, vaya a la pestaña *Selected*, coloque en los parámetros:
 
-+ *Cut Z*: -2 (mm), es la profundidad necesaria para que la herramienta pueda quitar la capa de cobre.
-+ *Travel Z*: 1 (mm).
++ *Cut Z*: -2 (mm), es la profundidad necesaria para que la herramienta pueda cortar la pcb.
++ *Travel Z*: 5 (mm).
 + *End move Z*: 50 (mm).
-+ *Feedrate X-Y*: 3 (mm/min), es la velocidad del movimiento sobre el plano X-Y.
++ *Feedrate X-Y*: 3 (mm/min).
 + *Feedrate Z*: 3 (mm/min).
 + *Spindle speed*: 12000 (RPM).
 
@@ -104,6 +104,16 @@ note que en la pestaña *project* del panel izquierdo, en la categoria *CNC Job*
 ### <a name="sec_prepare"></a> Preparar la ruteadora
 Para realizar el grabado de las pistas, los agujeros pasantes y el corte de la pcb, como se ha configurado en los pasos anteriores, va a necesitar una "fresa v 30 grados para collect de 3mm", una "broca 1mm para collet de 3mm" y una "fresa de 4mm para collet de 6mm", estos elementos se muestran en la siguiente imagen:
 
+![alt text](https://github.com/cap-repositories/Ruteadora/blob/master/miscelanea/imagenes/broca_fresas_USBA_USBB.png "brocas y fresa")
 
+Y para colocar estas herramientas va a necesitar un collect para fresas de 3mm y otro para fresas de 6mm:
+
+![alt text](https://github.com/cap-repositories/Ruteadora/blob/master/miscelanea/imagenes/collects_USBA_USBB.png "collets")
+
+La ruteadora tiene dos interruptores para controlar la energía que llega a los motores de movimiento, asegurese de que estos esten encendidos y además asegurese de desconectar el motor donde van las fresas, como se muestra en la imagen:
+
+![alt text](https://github.com/cap-repositories/Ruteadora/blob/master/miscelanea/imagenes/encenderRuteadora_USBA_USBB.png "encender motores de la ruteadora")
+
+Conecte el cable USB (del arduino) en una computadora y abra **OpenCNCPilot**, una vez se abra la interfaz, a la derecha encontrara un recuadro que tiene como titulo "Machine", desplieguelo y presione *Connect*,
 
 ### <a name="sec_execute"></a> Ejecutar el codigo G generado
