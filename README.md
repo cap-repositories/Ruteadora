@@ -12,7 +12,7 @@ Antes de utilizar la ruteadora tenga en cuenta lo siguiente:
 
 + Es obligatorio utilizar gafas cuando vaya a poner en funcionamiento la ruteadora
 + Si va a realizar alguna perforación, asegurese de colocar material de protección debajo del que va a perforar.
-+ Asegurese de hacer "Homing"(mandar la ruteadora a los puntos de referencia) cuando encienda o reinicia la ruteadora y antes de mandar algún otro comando.
++ Asegurese de hacer "Homing"(mandar la ruteadora a los puntos de referencia) cuando encienda o reinicie la ruteadora y antes de mandar algún otro comando.
 
 ## Guía para realizar una PCB prototipo
 Para realizar un circuito impreso utilizando la ruteadora se debe hacer lo siguiente:
