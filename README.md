@@ -5,21 +5,25 @@ Este repositorio esta pensado para que las personas que quieran conocer o tengan
 *hablar acerca de las partes de la ruteadora, mostrar imagenes y mencionar el software que se encuentra instalado*
 
 ## Software de control
-Esta ruteadora es pensada para trabajar principalmente en la fabricación de PCBs, por lo cual se recomienda la instalación de [OpenCNCPilot](https://github.com/martin2250/OpenCNCPilot) que envia el codigo G al controlador de la ruteadora a través de un puerto serial.
+La principal función de la ruteadora es la fabricación de PCBs, por lo cual se recomienda la instalación de [OpenCNCPilot](https://github.com/martin2250/OpenCNCPilot) que envia el codigo G al controlador de la ruteadora a través de un puerto serial.
+
+### <a name="sec_notes"></a> Consideraciones generales
+Antes de utilizar la ruteadora tenga en cuenta lo siguiente:
+
++ Es obligatorio utilizar gafas cuando vaya a poner en funcionamiento la ruteadora
++ Si va a realizar alguna perforación, asegurese de colocar material de protección debajo del que va a perforar.
++ Asegurese de hacer "Homing"(mandar la ruteadora a los puntos de referencia) cuando encienda o reinicia la ruteadora y antes de mandar algún otro comando.
 
 ## Guía para realizar una PCB prototipo
-Para realizar un circuito impreso utilizando la ruteadora se deben realizar los siguientes pasos:
+Para realizar un circuito impreso utilizando la ruteadora se debe hacer lo siguiente:
 
-0. [Consideraciones generales](#sec_notes)
 1. [Crear el esquematico y generar el archivo en formato gerber](#sec_esq)
 2. [Generar el codigo G a partir del archivo en formato gerber](#sec_gcode)
 3. [Preparar la ruteadora](#sec_prepare)
 4. [Ejecutar el codigo G generado](#sec_execute)
 
 
-Como ejemplo, se mostrará como se realizó una PCB prototipo en la cual se instalan dos conectores USB hembra, uno tipo A y el otro tipo B, para crear una interfaz entre un cable con terminal USB A macho y otro con terminal USB B macho.
-
-### <a name="sec_notes"></a> Consideraciones generales
+Como ejemplo, se mostrará como se realizó una PCB prototipo en la cual se instalan dos conectores USB hembra, uno tipo A y el otro tipo B, para crear una interfaz entre un cable con terminal USB A macho y otro con terminal USB B macho. 
 
 ### <a name="sec_esq"></a> Crear el esquematico y generar el archivo en formato gerber
 Para crear el esquematico se puede utilizar cualquier software de automatización de diseño electrónico (**EDA**) como *Altium*, *Eagle*, *KiCad*, *EasyEDA*, entre otros... lo importante es poder diseñar un circuito y generar un archivo en formato [gerber](https://es.wikipedia.org/wiki/Gerber_(formato_de_archivo)) que contiene la información necesaria para fabricar la PCB. En está guía se utiliza *EasyEDA* porque se encuentra disponible en linea y es suficiente para la aplicación, para esta aplicación solo se necesitan dos componentes: *USB A* y *USB B*, que se pueden encontrar en la sección *Libraries* de EasyEDA. Luego de colocar los componentes y unirlos con cables el esquematico queda de la siguiente forma:
@@ -38,7 +42,7 @@ Seleccione cada pad de la USB A, en un recuadro a la derecha aparecen las propie
 
 ![alt text](https://github.com/cap-repositories/Ruteadora/blob/master/miscelanea/imagenes/PCB3_USBA_USBB.PNG "pcb3")
 
-Por ultimo genere el gerber: ![alt text](https://github.com/cap-repositories/Ruteadora/blob/master/miscelanea/imagenes/gengerber_USBA_USBB.png "gengerber"), saldra otro cuadro, en este presione nuevamente generar gerber y se descargara un archivo .zip, que contiene los archivos gerber de la pcb, EasyEDA por defecto guarda la información del borde de la placa en *Gerber_BoardOutline.GKO*, la posición donde se deben hacer los agujeros en *Gerber_Drill_PTH.DRL* y las pistas las guarda por defecto en *Gerber_TopLayer.GTL*.
+Por ultimo genere el gerber: ![alt text](https://github.com/cap-repositories/Ruteadora/blob/master/miscelanea/imagenes/gengerber_USBA_USBB.png "gengerber"), saldra otro cuadro, en este presione nuevamente generar gerber y se descargara un archivo .zip, que contiene los archivos gerber de la pcb. EasyEDA por defecto guarda la información del borde de la placa en *Gerber_BoardOutline.GKO*, la posición donde se deben hacer los agujeros en *Gerber_Drill_PTH.DRL* y las pistas las guarda por defecto en *Gerber_TopLayer.GTL*.
 
 También se pueden crear las pistas utilizando la herramienta *Auto Router* en linea o desde el computador siguiendo este [enlace](https://docs.easyeda.com/en/PCB/Route/index.html#Local-Auto-Router), para usar esta herramienta se debe considerar el ancho de la pista (**Track width**), el espaciamiento entre las pistas (**Clearance**), el ancho de los pads donde se soldan los pines (**Via diameter**) y el ancho de los orificios que se realizan con el taladro (**Via drill diameter**), este ultimo parametro debe ser menor al **Via diameter** de forma que quede suficiente material para aplicar soldadura.
 
