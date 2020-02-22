@@ -1,0 +1,7 @@
+Calidad del circuito con diferentes velocidades y profundidades de corte:
+  -1:
+    Cut Z: -0.2mm
+    Travel Z: 3mm
+    Feedrate X-Y: 20mm
+    Feedrate Z: 8mm
+    RESULTADO: Bueno
