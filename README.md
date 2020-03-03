@@ -90,7 +90,7 @@ y presione *Create Drills GCode*. Ahora, genere el código G para las pistas. De
 + *Feedrate Z*: 3 (mm/min).
 + *Spindle speed*: 12000 (RPM).
 
-y presione *Generate*. Ahora, genere el código G para las pistas. De click izquierdo en el archivo *Gerber_BoardOutline.GKO_cutout*, vaya a la pestaña *Selected*, coloque en los parámetros:
+y presione *Generate*. Ahora, genere el código G para realizar el corte del exterior del circuito. De click izquierdo en el archivo *Gerber_BoardOutline.GKO_cutout*, vaya a la pestaña *Selected*, coloque en los parámetros:
 
 + *Cut Z*: -2 (mm), es la profundidad necesaria para que la herramienta pueda cortar la pcb.
 + *Travel Z*: 5 (mm).
