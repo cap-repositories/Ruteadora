@@ -15,8 +15,8 @@ Antes de utilizar la ruteadora tenga en cuenta lo siguiente:
 > Al hacer uso de la ruteadora da su consentimiento de haber entendido esta sección.
 
 # Primeros pasos
-+ [Documentación](#)
-+ [Instalación](#)
++ [Documentación](https://github.com/cap-repositories/Ruteadora/wiki)
++ [Instalación](https://github.com/cap-repositories/Ruteadora/wiki/Programas)
 
 ## Guía rapida
 + [Creando una PCB prototipo](#)
@@ -25,3 +25,7 @@ Antes de utilizar la ruteadora tenga en cuenta lo siguiente:
 + [Preparando el entorno](#)
 + [Fabricación de la PCB](#)
 + [Toma de datos y acabado de la PCB](#)
+
+## [Ejemplos](https://github.com/cap-repositories/Ruteadora/tree/master/Ejemplos)
+En este mismo repositorio se alojan algunas muestras de circuitos ya realizados bajo el directorio `Ejemplos/`.
+Cada proyecto posee su directorio y nombre especifico, asi como los archivos que se utilizaron para su desarrollo y enlaces de esquematicos.
