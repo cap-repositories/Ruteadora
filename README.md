@@ -19,12 +19,12 @@ Antes de utilizar la ruteadora tenga en cuenta lo siguiente:
 + [Instalación](https://github.com/cap-repositories/Ruteadora/wiki/Programas)
 
 ## Guía rapida
-+ [Creando una PCB prototipo](#)
-+ [Exportando un GERBER](#)
-+ [Editando y creando codigo G](#)
-+ [Preparando el entorno](#)
-+ [Fabricación de la PCB](#)
-+ [Toma de datos y acabado de la PCB](#)
++ [Parte 1 - Creando una PCB prototipo](https://github.com/cap-repositories/Ruteadora/wiki/Tutorial---Parte-1)
++ [Parte 2 - Exportando un GERBER](https://github.com/cap-repositories/Ruteadora/wiki/Tutorial---Parte-2)
++ [Parte 3 - Editando y creando codigo G](https://github.com/cap-repositories/Ruteadora/wiki/Tutorial---Parte-3)
++ [Parte 4 - Preparando el entorno](https://github.com/cap-repositories/Ruteadora/wiki/Tutorial---Parte-4)
++ [Parte 5 - Fabricación de la PCB](https://github.com/cap-repositories/Ruteadora/wiki/Tutorial---Parte-5)
++ [Anexo - Toma de datos y acabado de la PCB](https://github.com/cap-repositories/Ruteadora/wiki/Tutorial---Anexo)
 
 ## [Ejemplos](https://github.com/cap-repositories/Ruteadora/tree/master/Ejemplos)
 En este mismo repositorio se alojan algunas muestras de circuitos ya realizados bajo el directorio `Ejemplos/`.
