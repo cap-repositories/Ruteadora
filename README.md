@@ -10,4 +10,18 @@ Antes de utilizar la ruteadora tenga en cuenta lo siguiente:
 + Si va a realizar alguna perforación, asegurese de colocar material de protección debajo del que va a perforar.
 + **Siempre** asegurese de hacer "Homing"(enviar la ruteadora a los puntos de referencia) cuando encienda o reinicie la ruteadora y antes de enviar algún otro comando.
 
-> Solo es una norma general para el uso de casi todas las maquinas. Al hacer uso de la ruteadora da su consentimiento de haber entendido esta sección.
+> Solo es una norma general para el uso de casi todas las maquinas.
+
+> Al hacer uso de la ruteadora da su consentimiento de haber entendido esta sección.
+
+# Primeros pasos
++ [Documentación](#)
++ [Instalación](#)
+
+## Guía rapida
++ [Creando una PCB prototipo](#)
++ [Exportando un GERBER](#)
++ [Editando y creando codigo G](#)
++ [Preparando el entorno](#)
++ [Fabricación de la PCB](#)
++ [Toma de datos y acabado de la PCB](#)
